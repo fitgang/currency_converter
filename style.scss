@@ -18,7 +18,8 @@ body {
     align-items: center;
     visibility: hidden;
     animation: bodyLoad 1s linear 2000ms forwards;
-    background: #c7c7c7
+    background: #c7c7c7;
+    overflow: scroll
 }
 
 body::-webkit-scrollbar {
