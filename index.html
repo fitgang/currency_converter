@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" integrity="sha512-jQqzj2vHVxA/yCojT8pVZjKGOe9UmoYvnOuM/2sQ110vxiajBU+4WkyRs1ODMmd4AfntwUEV4J+VfM6DkfjLRg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>Currency Converter</title>
+</head>
+
+<body>
+    <section id="main">
+        <h1 id="cc" tabindex="0">Currency Converter</h1>
+        <section id="currency-images">
+            <i class="fas fa-yen-sign"></i>
+            <i class="fas fa-rupee-sign"></i>
+            <i class="fas fa-dollar-sign"></i>
+            <i class="fas fa-pound-sign"></i>
+        </section>
+        <section id="main-container">
+            <h2 id="description" tabindex="0">Enter the currency and amount to convert</h2>
+            <div id="converter">
+                <div class="inputs">
+                    <select id="from-currency" title="base currency" autofocus>
+                    <!-- <option value="INR">INR</option> -->
+                </select>
+                    <input type="number" id="from-amount" required>
+                </div>
+                <button id="swap" type="button">Swap</button>
+                <div class="inputs">
+                    <select id="to-currency" title="final currency"></select>
+                    <input type="number" id="to-amount" title="final amount">
+                </div>
+                <button id="compare">Compare</button>
+            </div>
+        </section>
+    </section>
+    <section class="all">
+        <button id="sort">Sorted by Relevance</button>
+        <div></div>
+    </section>
+    <footer>
+        <p id="lastUpdated">Last updated: </p>
+        <a href="https://www.exchangerate-api.com">Rates By Exchange Rate API</a>
+    </footer>
+</body>
+<script src="script.js"></script>
+
+</html>
