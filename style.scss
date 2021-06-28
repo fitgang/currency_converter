@@ -5,6 +5,12 @@
     }
 }
 
+:root {
+    --first-color: #4921da;
+    --second-color: #daa521;
+    --third-color: #c7c7c7;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -12,14 +18,23 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-body {
+body,
+#main,
+#currency-images,
+#main-container,
+#converter,
+.inputs,
+.all {
     display: flex;
-    flex-direction: column;
     align-items: center;
+}
+
+body {
+    flex-direction: column;
     visibility: hidden;
-    animation: bodyLoad 1s linear 2000ms forwards;
-    background: #c7c7c7;
+    background: var(--third-color);
     overflow: scroll;
+    animation: bodyLoad 1s linear 2000ms forwards;
 }
 
 body::-webkit-scrollbar {
@@ -28,25 +43,27 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #a8a8a8;
+    background: #0000004b;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background: #808080;
+    background: #0000007a;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 #main {
-    display: flex;
     flex-direction: column;
-    align-items: center;
     z-index: 1;
-    background: #c7c7c7;
+    background: var(--third-color);
 }
 
 h1#cc {
     margin-top: 12px;
     font-size: 2.2em;
-    color: #4921da;
+    color: var(--first-color);
     @include mq(525px) {
         font-size: 3em;
     }
@@ -54,11 +71,9 @@ h1#cc {
 
 #currency-images {
     width: 100%;
-    display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    color: #daa520;
+    color: var(--second-color);
 }
 
 .fas {
@@ -85,11 +100,9 @@ h1#cc {
     animation-delay: 1500ms;
 }
 
-section#main-container {
+#main-container {
     width: 100%;
-    display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 1em auto;
 }
 
@@ -102,16 +115,14 @@ h2#description {
     }
 }
 
-div#converter {
+#converter {
     height: 15rem;
     width: 100%;
     max-width: 400px;
     padding: 0 10px;
     margin-top: 5px;
-    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
     @include mq(525px) {
         height: 20rem;
         margin-top: 12px;
@@ -119,8 +130,8 @@ div#converter {
     button {
         font-size: 15px;
         padding: 5px;
-        background: #4929d8;
-        color: #c7c7c7;
+        background: var(--first-color);
+        color: var(--third-color);
         @include mq(525px) {
             font-size: 18px;
         }
@@ -137,19 +148,17 @@ div#converter {
     }
 }
 
-div.inputs {
+.inputs {
     width: 100%;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
     select,
     input {
         background: transparent;
-        border-color: #4929d8;
+        border-color: var(--first-color);
     }
     select:focus,
     input:focus {
-        outline: #4929d8 solid 1px;
+        outline: var(--first-color) solid 1px;
     }
     select {
         padding: 5px;
@@ -161,9 +170,12 @@ div.inputs {
             border-width: 3px 0 0 0;
         }
         option {
-            background: #daa521;
-            color: #4921da;
+            background: var(--second-color);
+            color: var(--first-color);
         }
+    }
+    select:hover {
+        cursor: pointer;
     }
     input {
         padding: 5px;
@@ -179,12 +191,10 @@ div.inputs {
 }
 
 .all {
-    display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
     max-width: 400px;
-    background: #4929d8;
+    background: var(--first-color);
     padding-top: 3px;
     transform: translateY(-50rem);
     border-radius: 25px;
@@ -196,20 +206,20 @@ div.inputs {
     }
     div::-webkit-scrollbar {
         width: 5px;
-        background: #c7c7c7;
+        background: var(--third-color);
     }
     div::-webkit-scrollbar-thumb {
         background: #000;
     }
     div::-webkit-scrollbar-thumb:hover {
-        background: lighten($color: #000, $amount: 50%);
+        background: #00000081;
     }
     p {
         font-family: monospace;
         font-style: italic;
         letter-spacing: 1px;
         padding: 8px;
-        color: #e6e6e6;
+        color: #fff;
         font-size: 14px;
         @include mq(525px) {
             font-size: 16px;
@@ -225,19 +235,21 @@ div.inputs {
 
 button#sort {
     align-self: flex-end;
-    color: #faf8f8;
+    color: #fff;
     background: transparent;
-    border: none;
     padding: 4px 14px;
     font-size: 14px;
     margin-right: 15px;
+    border: 1px solid #fff;
+    border-radius: 6px;
     @include mq(525px) {
         font-size: 15px;
     }
 }
 
-#sort:active {
-    background: #3920ac;
+#sort:active,
+#sort:hover {
+    background: #ffffff38;
 }
 
 section.show {
@@ -249,14 +261,14 @@ section.show {
 footer {
     text-align: center;
     #lastUpdated {
-        color: #808080;
+        color: #0000008a;
         font-size: 14px;
         letter-spacing: 1px;
         padding: 5px;
     }
     a {
         text-decoration: none;
-        color: #4929d8;
+        color: var(--first-color);
         font-weight: 700;
     }
 }
@@ -273,7 +285,6 @@ footer {
 }
 
 @keyframes bodyLoad {
-    from {}
     to {
         visibility: visible;
     }
