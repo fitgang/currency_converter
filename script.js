@@ -19,7 +19,7 @@ function checkToUpdate() {
 
 // gets the rates from the exchangerate-api.com/docs/free (free & open access)
 async function getRatesObj() {
-    return await fetch("https://open.er-api.com/v6/latest").then(r => r.json());
+    return fetch("https://open.er-api.com/v6/latest").then(r => r.json());
 }
 
 // fill <select> in HTML with the required options
@@ -191,6 +191,9 @@ baseAmt.addEventListener("input", () => {
 
     // displaying the compare button
     setTimeout(() => compare.style.visibility = "visible", 1000);
+});
+[baseCurr, finalCurr].forEach((s) => {
+    s.addEventListener("input", () => { if (baseAmt.value) convert() })
 });
 swap.addEventListener("click", swapCurrency);
 compare.addEventListener("click", convertInAll);
